@@ -19,7 +19,6 @@ class SearchInput {
     addCountry = (country) => {
 
         if (this.checkIfAlreadyAdded(country)) {
-            alert("Alert Added");
             return;
         }
 
@@ -33,7 +32,6 @@ class SearchInput {
         const removeButton = document.createElement('span');
         removeButton.innerText = 'x';
         removeButton.classList.add('close');
-        // span.setAttribute('key', numericCode);
         removeButton.addEventListener("click", () => this.removeCountry(tag.numericCode));
 
 
@@ -59,6 +57,13 @@ class SearchInput {
         elem.remove();
         this.input.focus();
     }
+
+    removeLastAdded = () => {
+        if (this.addedTags.length) {
+            const lastOneAdded = this.addedTags[this.addedTags.length - 1];
+            this.removeCountry(lastOneAdded.numericCode);
+        }
+    }
 }
 
 
@@ -71,7 +76,6 @@ function init() {
     xhr.onload = function () {
         // Process our return data
         if (xhr.status >= 200 && xhr.status < 300) {
-            console.log(typeof xhr.response);
             instance.countriesList = xhr.response;
 
             instance.countryCodes = instance.countriesList.map(item => {
@@ -91,11 +95,17 @@ function init() {
 
 
     instance.input.addEventListener('input', (e) => inputChanges(e));
+    instance.input.addEventListener('keydown', logKey);
+
+    function logKey(e) {
+        if (e.code === 'Backspace' && !e.target.value) {
+            instance.removeLastAdded();
+        }
+    }
 
 
 
     function inputChanges(e) {
-        console.log(e.target.value.length);
         instance.resultBox.innerHTML = '';
 
         //if finds value
@@ -115,7 +125,6 @@ function init() {
 
         const foundList = instance.countryCodes
             .filter(country => {
-                //console.log(search_term);
                 return country.alpha3Code.toLowerCase().includes(search_term.toLowerCase())
             });
 
@@ -150,4 +159,5 @@ function init() {
 
 document.addEventListener('DOMContentLoaded', function () {
     init();
-})
+});
+
