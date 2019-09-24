@@ -94,8 +94,6 @@ function init() {
 
 
 
-
-
     function inputChanges(e) {
         console.log(e.target.value.length);
         instance.resultBox.innerHTML = '';
@@ -115,12 +113,14 @@ function init() {
     function searchCountry(search_term) {
         let ul = document.createElement('ul');
 
-        instance.countryCodes
+        const foundList = instance.countryCodes
             .filter(country => {
                 //console.log(search_term);
                 return country.alpha3Code.toLowerCase().includes(search_term.toLowerCase())
-            })
-            .forEach(item => {
+            });
+
+        if (foundList.length > 0) {
+            foundList.forEach(item => {
                 const li = document.createElement('li');
                 li.classList.add('search-item');
                 li.innerText = item.name + ": ";
@@ -134,9 +134,15 @@ function init() {
                     instance.addCountry(item);
 
                 });
-
                 ul.appendChild(li);
             });
+        }
+        else {
+            const li = document.createElement('li');
+            li.classList.add('search-item-not-found');
+            li.innerText = "No data found.";
+            ul.appendChild(li);
+        }
 
         instance.resultBox.appendChild(ul);
     }
