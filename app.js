@@ -5,6 +5,7 @@ class SearchInput {
         this.resultBox = document.querySelector('.result-box');
         this.selectedItemsContainer = document.querySelector('.selected-items');
         this.completeDataContainer = document.querySelector('.full-data');
+        this.alert = document.querySelector('.alert');
         this.countriesList = [];
         this.countryCodes = [];
         this.addedTags = [];
@@ -19,6 +20,11 @@ class SearchInput {
     addCountry = (country) => {
 
         if (this.checkIfAlreadyAdded(country)) {
+            this.alert.classList.add('show');
+            setTimeout(() => {
+                this.alert.classList.remove('show');
+            }, 1000);
+            this.input.focus();
             return;
         }
 

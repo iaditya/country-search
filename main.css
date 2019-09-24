@@ -109,10 +109,6 @@ input:focus{
     background-color: whitesmoke;
 }
 
-.show {
-    display: block;
-}
-
 .search-item {
     cursor: pointer;
     font-weight: 700;
@@ -132,4 +128,20 @@ input:focus{
     font-size: 0.8rem;
     word-spacing: 1.5px;
     line-height: 1.5rem;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 40%;
+}
+.alert span {
+    text-align: center;
+    border-bottom: 5px solid transparent;
+    box-shadow: 0 2px 0 0 red;
+}
+
+.show {
+    display: block;
 }
