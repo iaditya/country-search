@@ -1,0 +1,122 @@
+:root {
+    --background: '#h5h5h5'
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 100px auto;
+    background-color: lightgrey;
+}
+
+.search {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid aliceblue;
+    margin-left: 20px;
+}
+.input-container {
+    width: 98%;
+    padding: 7px;
+    border: 2px solid royalblue;
+    border-radius: 3px;
+}
+
+.search label, .search .input-container {
+    display: block;
+    margin-bottom: 15px;
+}
+.search label {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    width: 100%;
+}
+
+.input-text {
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    line-height: 2rem;
+    font-size: 1rem;
+    padding-left: 10px;
+    border: 0;
+}
+input:focus{
+    outline: none;
+}
+
+.selected-item {
+    display: inline-block;
+    margin: 4px 7px 0 0;
+    font-size: 90%;
+    padding: 5px;
+    background: whitesmoke;
+    border-radius: 3px;
+}
+
+.close {
+    text-align: center;
+    display: inline-block;
+    height: 15px;
+    width: 17px;
+    color: white;
+    background: #808080a1;
+    border-radius: 50%;
+    margin: 0 2px;
+    font-size: 13px;
+    vertical-align: baseline;
+    padding-bottom: 2px;
+    cursor: pointer;
+}
+
+.result-box {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 44px;
+    left: 5px;
+    border: 1px solid whitesmoke;
+    border-top: 0;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0px 1px 10px 0 #ccc;
+    z-index: 10;
+    max-height: 260px;
+    background-color: white;
+}
+
+.result-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    letter-spacing: 1px
+}
+.result-box ul li {
+    padding: 5px 5px 5px 10px;
+    margin: 5px 0;
+    overflow-y: scroll;
+}
+.result-box ul li:hover {
+    background-color: whitesmoke;
+}
+
+.show {
+    display: block;
+}
+
+.search-item {
+    font-weight: 700;
+    font-size: 1rem;
+    word-spacing: 1.5px;
+    color: black;
+}
+.search-item  span {
+    color: #0000009e;
+}
