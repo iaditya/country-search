@@ -88,7 +88,8 @@ input:focus{
     border-radius: 0 0 3px 3px;
     box-shadow: 0px 1px 10px 0 #ccc;
     z-index: 10;
-    max-height: 260px;
+    max-height: 360px;
+    overflow-y: scroll;
     background-color: white;
 }
 
@@ -98,8 +99,7 @@ input:focus{
     padding: 0;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    max-height: 200px;
-    overflow-y: scroll;
+
 }
 .result-box ul li {
     cursor: pointer;
@@ -123,4 +123,10 @@ input:focus{
 .search-item  span {
     color: #0000009e;
     text-transform: uppercase;
+}
+
+.full-data {
+    font-size: 0.8rem;
+    word-spacing: 1.5px;
+    line-height: 1.5rem;
 }
