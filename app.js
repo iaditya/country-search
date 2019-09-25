@@ -2,6 +2,7 @@ class SearchInput {
 
     constructor() {
         this.input = document.querySelector('#input-search');
+        this.inputContainer = document.querySelector('.input-container');
         this.resultBox = document.querySelector('.result-box');
         this.selectedItemsContainer = document.querySelector('.selected-items');
         this.completeDataContainer = document.querySelector('.full-data');
@@ -47,7 +48,7 @@ class SearchInput {
         this.addedTags.push(tag);
         this.input.value = '';
         this.resultBox.classList.remove('show');
-        this.input.focus();
+        this.focusOnInput();
 
         this.completeDataContainer.innerText = JSON.stringify(this.addedTags);
     }
@@ -61,7 +62,7 @@ class SearchInput {
 
         const elem = document.getElementById(numericCode);
         elem.remove();
-        this.input.focus();
+        this.focusOnInput();
     }
 
     removeLastAdded = () => {
@@ -69,6 +70,10 @@ class SearchInput {
             const lastOneAdded = this.addedTags[this.addedTags.length - 1];
             this.removeCountry(lastOneAdded.numericCode);
         }
+    }
+
+    focusOnInput = () => {
+        this.input.focus();
     }
 }
 
@@ -102,14 +107,13 @@ function init() {
 
     instance.input.addEventListener('input', (e) => inputChanges(e));
     instance.input.addEventListener('keydown', logKey);
+    instance.inputContainer.addEventListener('click', () => instance.focusOnInput());
 
     function logKey(e) {
         if (e.code === 'Backspace' && !e.target.value) {
             instance.removeLastAdded();
         }
     }
-
-
 
     function inputChanges(e) {
         instance.resultBox.innerHTML = '';

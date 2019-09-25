@@ -1,29 +1,38 @@
 :root {
-    --background: '#h5h5h5'
+    --whitesmoke: #h5h5h5;
+    --blue: #4169e1;
+    --white: #fff;
+    --lightgrey: #d3d3d3;
+    --aliceblue: #f0f8ff;
+    --lightgray: #808080a1;
+    --gray: #ccc;
+    --lightBlack: #0000009e;
+    --black: #000;
+    --red: #ff0000;
 }
 
 body {
-    background-color: var(--background);
+    background-color: var(--whitesmoke);
     font-family: 'Montserrat', sans-serif;
 }
 
 .container {
     max-width: 900px;
     margin: 100px auto;
-    background-color: lightgrey;
+    background-color: var(--lightgrey);
 }
 
 .search {
     width: 100%;
-    background-color: white;
+    background-color: var(--white);
     padding: 20px;
-    border: 1px solid aliceblue;
+    border: 1px solid var(--aliceblue);
     margin-left: 20px;
 }
 .input-container {
     width: 98%;
     padding: 7px;
-    border: 2px solid royalblue;
+    border: 2px solid var(--blue);
     border-radius: 3px;
 }
 
@@ -58,7 +67,7 @@ input:focus{
     margin: 4px 7px 0 0;
     font-size: 90%;
     padding: 5px;
-    background: whitesmoke;
+    background: var(--whitesmoke);
     border-radius: 3px;
 }
 
@@ -67,8 +76,8 @@ input:focus{
     display: inline-block;
     height: 15px;
     width: 17px;
-    color: white;
-    background: #808080a1;
+    color: var(--white);
+    background: var(--lightgray);
     border-radius: 50%;
     margin: 0 2px;
     font-size: 13px;
@@ -83,14 +92,14 @@ input:focus{
     position: absolute;
     top: 44px;
     left: 5px;
-    border: 1px solid whitesmoke;
+    border: 1px solid var(--whitesmoke);
     border-top: 0;
     border-radius: 0 0 3px 3px;
-    box-shadow: 0px 1px 10px 0 #ccc;
+    box-shadow: 0px 1px 10px 0 var(--gray);
     z-index: 10;
     max-height: 360px;
     overflow-y: scroll;
-    background-color: white;
+    background-color: var(--white);
 }
 
 .result-box ul {
@@ -106,7 +115,7 @@ input:focus{
     margin: 5px 0;
 }
 .result-box ul li:hover {
-    background-color: whitesmoke;
+    background-color: var(--whitesmoke);
 }
 
 .search-item {
@@ -114,13 +123,13 @@ input:focus{
     font-weight: 700;
     font-size: 1rem;
     word-spacing: 1.5px;
-    color: black;
+    color: var(--black);
 }
 .search-item-not-found {
-    color: red;
+    color: var(--red);
 }
 .search-item  span {
-    color: #0000009e;
+    color: var(--lightBlack);
     text-transform: uppercase;
 }
 
@@ -139,7 +148,7 @@ input:focus{
 .alert span {
     text-align: center;
     border-bottom: 5px solid transparent;
-    box-shadow: 0 2px 0 0 red;
+    box-shadow: 0 2px 0 0 var(--red);
 }
 
 .show {
